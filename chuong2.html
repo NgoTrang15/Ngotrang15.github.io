@@ -5,6 +5,56 @@
     <title>CHƯƠNG 2</title>
     <link rel="stylesheet" href="style.css">
     <style>
+      
+      img, video, audio {
+          -webkit-user-drag: none;
+          -khtml-user-drag: none;
+          -moz-user-drag: none;
+          -o-user-drag: none;
+          user-drag: none;
+         
+      }
+  
+    
+  </style>
+  <script>
+      
+      document.addEventListener('contextmenu', function(e) {
+          if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+              e.preventDefault();
+          }
+      }, false);
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+function ctrlShiftKey(e, keyCode) {
+return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+// Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+if (
+  event.keyCode === 123 ||
+  ctrlShiftKey(e, 'I') ||
+  ctrlShiftKey(e, 'J') ||
+  ctrlShiftKey(e, 'C') ||
+  (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+)
+  return false;
+};
+function myFunction(selectTag) {
+var listValue = selectTag.options[selectTag.selectedIndex].text;
+document.getElementById("text").style.fontFamily = listValue;
+}
+document.addEventListener('copy', function (e) {
+e.preventDefault(); // Ngăn chặn thao tác sao chép
+
+// Hiển thị thông báo
+alert('Nội dung này đã bị chống sao chép.');
+});
+  </script>
+<link href="../Styles/fontsize.css" type="text/css" rel="stylesheet"/>
+</head>
+<style>
         .video-container {
             width: 100%;
             max-width: 600px; /* Giới hạn kích cỡ tối đa */
