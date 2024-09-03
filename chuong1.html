@@ -1,18 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CHƯƠNG 1</title>
+  <meta charset="UTF-8">
+    <title>CHƯƠNG 1</title>
     <link rel="stylesheet" href="slideshow.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+      
+        img, video, audio {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+           
+        }
+        
+    </style>
+    <script>
+        
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.tagName === 'AUDIO') {
+                e.preventDefault();
+            }
+        }, false);
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
 
+function ctrlShiftKey(e, keyCode) {
+  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+  if (
+    event.keyCode === 123 ||
+    ctrlShiftKey(e, 'I') ||
+    ctrlShiftKey(e, 'J') ||
+    ctrlShiftKey(e, 'C') ||
+    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+  )
+    return false;
+};
+    function myFunction(selectTag) {
+      var listValue = selectTag.options[selectTag.selectedIndex].text;
+      document.getElementById("text").style.fontFamily = listValue;
+    }
+    document.addEventListener('copy', function (e) {
+      e.preventDefault(); // Ngăn chặn thao tác sao chép
+    
+      // Hiển thị thông báo
+      alert('Nội dung này đã bị chống sao chép.');
+    });
+    </script>
 </head>
 
 <body>
     <h1 style="text-align: center;">CHƯƠNG 1</h1>
     <h1 style="text-align: center;" id="sigil_toc_id_1">NHẬN THỨC CHUNG VỀ QUYỀN TÁC GIẢ VÀ QUYỀN LIÊN QUAN</h1>
   
-    <div style="text-align: center;"><audio controls="controls" src="video.mp4"></audio>
+    <div style="text-align: center;"><audio controls="controls" src="nhacnen.mp3"></audio>
   <br/></div>
   
       <h2 id="sigil_toc_id_2">1.1. KHÁI NIỆM QUYỀN SỞ HỮU TRÍ TUỆ, QUYỀN TÁC GIẢ, QUYỀN LIÊN QUAN</h2>
@@ -91,5 +137,6 @@
 </div>
 
 <script src="slideshow.js"></script> 
+
 </body>
 </html>
