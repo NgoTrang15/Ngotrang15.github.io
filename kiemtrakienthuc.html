@@ -1,18 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>JavaScript Quiz App</title>
-  <link rel="stylesheet" href="cauhoi.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Trắc Nghiệm</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #CCCCFF;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            overflow: auto;
+        }
+
+        h2 {
+            color: #000066;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question p {
+            font-weight: bold;
+            color: #000066;
+            margin-bottom: 10px;
+        }
+
+        .answers {
+            margin-left: 20px;
+        }
+
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #000066;
+        }
+
+        .submit-btn {
+            background-color: #113deb;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #000066;
+        }
+
+        .result-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0f2f1;
+            border: 2px solid #000066;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
+
+        .incorrect-answer {
+            color: red;
+            font-weight: bold;
+        }
+
+        .result-container h3 {
+            color: #000066;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .quiz-container {
+                padding: 20px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Kiểm tra kiến thức</h1>
-    <div id="quiz"></div>
-    <div id="result" class="result"></div>
-    <button id="submit" class="button">Tiếp theo</button>
-    <button id="retry" class="button hide">Làm lại</button>
-    <button id="showAnswer" class="button hide">Hiển thị đáp án</button>
-  </div>
-  <script src="cauhoi.js"></script>
+    <div class="quiz-container">
+        <h2>Bài Tập Kiểm Tra Kiến Thức</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <p>Câu 1. Quyền tác giả phát sinh khi nào?</p>
+                <div class="answers">
+                    <label><input type="radio" name="question1" value="A"> A. Khi tác phẩm được đăng ký bản quyền.</label>
+                    <label><input type="radio" name="question1" value="B"> B. Khi tác phẩm được công bố rộng rãi.</label>
+                    <label><input type="radio" name="question1" value="C"> C. Khi tác phẩm được sáng tạo và thể hiện dưới một hình thức vật chất nhất định.</label>
+                    <label><input type="radio" name="question1" value="D"> D. Khi tác phẩm mang lại lợi nhuận cho tác giả.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>Câu 2: Quyền nhân thân của tác giả bao gồm những quyền nào (chọn 2 đáp án)?</p>
+                <div class="answers">
+                    <label><input type="checkbox" name="question2" value="A"> A. Quyền quyết định việc thu hồi tác phẩm.</label>
+                    <label><input type="checkbox" name="question2" value="B"> B. Quyền chỉnh sửa, bổ sung tác phẩm.</label>
+                    <label><input type="checkbox" name="question2" value="C"> C. Quyền được hưởng nhuận bút.</label>
+                    <label><input type="checkbox" name="question2" value="D"> D. Quyền bảo vệ danh dự, uy tín liên quan đến tác phẩm.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>Câu 3: Hành vi nào sau đây được xem là xâm phạm quyền tác giả?</p>
+                <div class="answers">
+                    <label><input type="radio" name="question3" value="A"> A. Sao chép một đoạn trích ngắn từ một tác phẩm để phục vụ mục đích nghiên cứu cá nhân.</label>
+                    <label><input type="radio" name="question3" value="B"> B. Sử dụng một bài hát trong một video không có sự cho phép của tác giả.</label>
+                    <label><input type="radio" name="question3" value="C"> C. Phát biểu lại ý tưởng của một tác phẩm bằng ngôn ngữ khác.</label>
+                    <label><input type="radio" name="question3" value="D"> D. Tạo một tác phẩm mới dựa trên ý tưởng của một tác phẩm đã có.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>Câu 4: Quyền liên quan là gì?</p>
+                <div class="answers">
+                    <label><input type="radio" name="question4" value="A"> A. Quyền của cá nhân sáng tạo ra một tác phẩm.</label>
+                    <label><input type="radio" name="question4" value="B"> B. Quyền của những người có đóng góp vào quá trình tạo ra và phổ biến một tác phẩm, như nghệ sĩ biểu diễn, nhà sản xuất bản ghi âm, tổ chức phát sóng.</label>
+                    <label><input type="radio" name="question4" value="C"> C. Quyền của nhà xuất bản đối với tác phẩm đã xuất bản.</label>
+                    <label><input type="radio" name="question4" value="D"> D. Quyền của công chúng tiếp cận với các tác phẩm.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>Câu 5: Trong hoạt động xuất bản, nhà xuất bản cần có sự đồng ý của tác giả đối với những quyền nào?</p>
+                <div class="answers">
+                    <label><input type="radio" name="question5" value="A"> A. Quyền nhân thân và quyền tài sản.</label>
+                    <label><input type="radio" name="question5" value="B"> B. Quyền tài sản.</label>
+                    <label><input type="radio" name="question5" value="C"> C. Quyền quyết định giá bán sách.</label>
+                    <label><input type="radio" name="question5" value="D"> D. Quyền lựa chọn hình thức xuất bản.</label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Nộp bài</button>
+        </form>
+        <div id="result" class="result-container"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const correctAnswers = {
+                question1: 'C',
+                question2: ['B', 'D'],
+                question3: 'B',
+                question4: 'B',
+                question5: 'A'
+            };
+
+            let score = 0;
+            const totalQuestions = 5;
+            const resultContainer = document.getElementById('result');
+            resultContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const answerElements = document.getElementsByName('question' + i);
+                const userAnswer = Array.from(answerElements).find(input => input.checked)?.value;
+
+                if (i !== 2) {
+                    if (userAnswer === correctAnswers['question' + i]) {
+                        score++;
+                        resultContainer.innerHTML += `<p class="correct-answer">Câu ${i}: Bạn đã trả lời đúng!</p>`;
+                    } else {
+                        resultContainer.innerHTML += `<p class="incorrect-answer">Câu ${i}: Sai, đáp án đúng là ${correctAnswers['question' + i]}</p>`;
+                    }
+                } else {
+                    const selectedAnswers = Array.from(answerElements)
+                        .filter(input => input.checked)
+                        .map(input => input.value);
+                    if (arraysEqual(selectedAnswers, correctAnswers.question2)) {
+                        score++;
+                        resultContainer.innerHTML += `<p class="correct-answer">Câu 2: Bạn đã trả lời đúng!</p>`;
+                    } else {
+                        resultContainer.innerHTML += `<p class="incorrect-answer">Câu 2: Sai, đáp án đúng là ${correctAnswers.question2.join(' và ')}</p>`;
+                    }
+                }
+            }
+
+            resultContainer.innerHTML += `<h3>Bạn trả lời đúng ${score}/${totalQuestions} câu.</h3>`;
+            resultContainer.style.display = 'block';
+        }
+
+        function arraysEqual(arr1, arr2) {
+            return JSON.stringify(arr1.sort()) === JSON.stringify(arr2.sort());
+        }
+    </script>
 </body>
+
 </html>
