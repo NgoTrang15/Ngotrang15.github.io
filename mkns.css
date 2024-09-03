@@ -1,0 +1,600 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#content h1 {
+    text-align: center;
+    margin-bottom:0px;
+    line-height: 22px;
+    vertical-align: middle;
+    font-size: 26 px;
+    color: #efeff2;
+    padding: 50px 0px 30px;
+}
+
+#content p {
+    user-select: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-indent: 40px;
+    text-align: justify;
+    margin-bottom: 10px;
+    line-height: 22px;
+    vertical-align: middle;
+    font-size: 18 px;
+    color: #000a57;
+}
+
+
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    color:#000a57;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    color:#000a57;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #fafaf7;
+    padding: 0px;
+    background-color:rgb(251, 251, 251);
+    box-shadow: 2px 1px 4px rgb(13, 4, 108);
+    z-index: 10;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0px auto;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+
+/**/
+
+#socialIcons{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color:#000a57;
+    font-size: 20px;
+}
+
+#socialIcons li {
+    position: relative;
+    color:#000a57;
+}
+
+#socialIcons li a{
+    text-decoration: none;
+    color:#000a57;
+    font-size: 20px;
+    display: block;
+    padding: 18px 10px;
+}
+
+#socialIcons li a:hover {
+    color: rgb(127, 217, 255);
+}
+
+
+/* MUC LUC CAC CHUONG */
+
+#socialIcons ul.sub-menu {
+    position: absolute;
+    background-color:rgb(255, 254, 228);
+    border-radius: 5px;
+    margin-top: 1px;
+    padding: 0px 0px;
+    list-style: none;
+    width: 200px;
+    border: 1px solid #222a6d;
+    display: none;
+}
+
+#socialIcons li:hover>ul.sub-menu {
+    display: block;
+}
+
+#socialIcons ul.sub-menu a {
+    padding: 8px 15px;
+    border-bottom: 1px solid #222a6d;
+    left: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+#socialIcons ul.sub-menu li:hover>a {
+    border-bottom: 1px solid rgb(127, 217, 255);
+}
+
+
+#socialIcons ul.sub-menu ul.sub-menu {
+    left: 0px;
+    top: 31px;
+    
+}
+
+#socialIcons .sub-menu>li.has-child::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f107";
+    color: #222a6d;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 10px 10px;
+}
+
+#socialIcons .sub-menu>li.has-child:hover::after{
+    color:rgb(127, 217, 255);
+}
+
+/* Thiết lập boder khi hover ở header */
+
+
+/**/
+
+#main-content{
+    display: flex;
+    padding: 70px 30px 50px 30px;
+}
+
+
+
+
+body {
+    color: #fff;
+    background-color:#000a57;
+}
+
+
+ul#main-menu {
+    display: flex;
+}
+
+ul#main-menu a {
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 30px;
+    color: #cb510a;
+    display: block;
+    position: relative;
+    
+}
+
+ul#main-menu a:hover {
+    color: rgb(127, 217, 255);
+}
+
+
+
+
+/* GIOI THIEU SACH */
+
+#content{
+    text-align: center;
+    background-color:rgb(255, 254, 228);
+    width: 1200px;
+    color: #000a57;
+    min-height: 300px;
+    background-size: 1500px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 20px;
+    display: flex;
+    position: relative; 
+}
+
+#content .box-left {
+    width: 40%;
+    
+}
+
+#content .box-left img {
+    object-position: center;
+    object-fit: cover;
+    width: 75%;
+    height: auto;
+    margin: 40px 20px 40px 10px;
+    box-shadow: 2px 1px 4px rgb(82, 82, 82);
+}
+
+#content .box-right {
+    width: 60%;
+    padding: 40px 40px 20px 0px;
+    user-select: none;
+}
+
+#content .box-right h2 {
+    text-align: left;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 750;
+    
+}
+
+ul#feedback {
+    display: flex;
+    justify-content: left;
+}
+
+ul#feedback a {
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 10px 20px 0px;
+    color: #000a57;
+    display: block;
+}
+
+ul#feedback i {
+    padding: 10px 0px 20px 0px;
+    color: rgb(255, 225, 0);
+}
+
+ul#author {
+    display: flex;
+    justify-content: left;
+}
+
+ul#author a {
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: justify;
+    padding: 5px 15px 5px 0px;
+    color: #000a57;
+    display: block;
+}
+
+ul#author #name a {
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 10px 5px 0px;
+    color: #000a57;
+    display: block;
+    position: relative;
+}
+
+ul#author #name a:hover {
+    color: rgb(127, 217, 255);
+}
+
+ul#author #name-list a {
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 10px 5px 0px;
+    color: #000a57;
+    display: block;
+    position: relative;
+}
+
+ul#readbook {
+    display: flex;
+    justify-content: left;
+    padding: 20px 10px 20px 0px;
+}
+
+ul#readbook a {
+    justify-content: left;
+    background-color:#000a57;
+    width: 190px;
+    border: 1px solid rgb(255, 254, 228);
+    padding: 10px;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-style:normal;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: rgb(255, 254, 228);
+    display: block;
+    position: relative;
+}
+
+ul#readbook a:hover {
+    color: rgb(127, 217, 255);
+}
+
+ul#readbook i {
+    font-size:28px;
+    outline: none;
+    outline:#1e2d9b 1px;
+    color: rgb(255, 0, 0);
+    padding: 15px 20px 20px 20px;
+    display: block;
+    position: relative;
+}
+
+ul#readbook i::backdrop {
+    color: rgb(127, 217, 255);
+}
+
+/* HET GIOI THIEU SACH */
+
+
+
+
+/* LIST SACH CUNG TAC GIA */
+
+#book-list {
+    padding: 50px 130px 50px 130px;
+}
+
+#book-list h2 {
+    text-align: left;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 750;
+    color:rgb(255, 254, 228);
+    padding-bottom: 20px;
+}
+
+#list {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#list .item {
+    width: 210px;
+    height: 305px;
+    background:rgb(255, 254, 228);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+#list .item img {
+    display: block;
+    margin:0px auto;
+    margin-top: 17px;
+    object-position: center;
+    object-fit: cover;
+    width: 80%;
+    height: auto;
+    box-shadow: 2px 1px 4px rgb(82, 82, 82);
+}
+
+#list .item .name {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 750;
+    color:#000a57;
+    margin-top: 13px;
+}
+
+/* HET LIST SACH CUNG TAC GIA */
+
+
+
+
+
+
+/* FOOTER */
+
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #000a57;
+    padding: 5px 0px;
+    background-color:rgb(255, 254, 228);
+    z-index: 10;
+}
+
+#footerContainer {
+    padding: 10px 30px ;
+    text-align: center;
+}
+
+#footerContainer .soclialIcons a {
+    color:#d7680d;
+    font-size: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px
+}
+
+#footerContainer .footerNav {
+    padding-top: 10px;
+}
+
+#footerContainer .footerNav h2 {
+    padding-bottom: 10px;
+    color: #000a57;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+}
+
+#footerContainer .footerNav a {
+    padding-bottom: 10px;
+    color: #000a57;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+
+#backtop {
+    width: 50px;
+    height: 50px;
+    background: rgb(218, 218, 218);
+    color:#000a57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* HET FOOTER */ 
+
+
+
+
+
+
+
+/**/
+
+#nextpage .np1 {
+    width: 50px;
+    height: 50px;
+    background: rgb(127, 217, 255);
+    color:#000a57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 300px;
+    left: 20px;
+    cursor: pointer;
+}
+
+#nextpage .np2 {
+    width: 50px;
+    height: 50px;
+    background: rgb(127, 217, 255);
+    color:#000a57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 300px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+
+
+/*********/
+
+#text-content {
+    align-items: center;
+}
+
+#text-content p {
+    text-align: justify;
+    line-height: 20px;
+    text-indent: 40px;
+    vertical-align: middle;
+	margin: 10px 0px;
+}
+
+#text-content h2 {
+    line-height: 20px;
+    vertical-align: middle;
+	margin: 20px 0px;
+    font-weight: 550;
+}
+
+#text-content h1 {
+    line-height: 20px;
+    vertical-align: middle;
+	margin: 30px 0px;
+    font-weight: 700;
+}
+.light-control {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .15s ease-in-out;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#notes-app {
+    width: 400px;
+    margin: 20px auto; /* Đặt margin là auto để căn giữa theo chiều ngang */
+    padding: 20px; 
+    border-radius: 5px;
+   
+}

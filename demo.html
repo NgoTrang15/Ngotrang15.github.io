@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quyền tác giả và quyền liên quan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./stylebutton.js"></script>
+</head>
+<body>
+    <div id="main">
+        <div class="box-menu">
+            <ul>
+                <ul id="main-menu">
+                    <li><a href="biasach.html">QUAY LẠI</a></li>
+                </ul>  
+                                <li><a href="#"><i style="font-size: 20px" class="bi bi-list"></i></a>
+                    <div class="box-submenu">
+                        <ul>
+                           
+                                        <li><a href="chuong1.html" target="muc luc">Chương 1</a></li>
+                                        <li><a href="chuong2.html" target="muc luc">Chương 2</a></li>
+                                    </ul>
+                               
+                    </div>
+                </li>
+                <li><a href="#"><i class="fa fa-font" aria-hidden="true"></i></a>
+                    <div class="font-dropdown">                        
+                        <ul>
+                            <li data-font="Times New Roman">Times New Roman</li>
+                            <li data-font="Palatino Linotype">Palatino Linotype</li>
+                            <li data-font="Arial">Arial</li>
+                        </ul>
+                    </div>                    
+                </li>
+                <li><button id="increaseFont"><i class="bi bi-plus-circle-fill"></i></button></li>
+                <li><button id="decreaseFont"><i class="bi bi-dash-circle-fill"></i></button></li>
+                <li><a href="#"><i class="bi bi-palette-fill"></i></a>
+                    <div class="color">
+                        <ul>
+                            <li data-color="yellow" onclick="changeBackgroundColor('#f5f7be')">Vàng</li>
+                            <li data-color="BLUE" onclick="changeBackgroundColor('#CCFFFF')">Xanh biển</li>
+                            <li data-color="Green" onclick="changeBackgroundColor('#CCFFCC')">Xanh lá</li>
+                            <li data-color="white" onclick="changeBackgroundColor('white')">Trắng</li>
+                        </ul>
+                    </div>
+                </li>
+               
+                <li><button id="fullscreen-button"><i class="bi bi-fullscreen"></i></button></li>
+            </ul>
+        </div>
+        <div>
+            <iframe id="myIframe" name="muc luc" src="chuong1.html"></iframe>
+        </div>
+    </div>
+</body>
+<script>
+    var fullscreenButton = document.getElementById('fullscreen-button');
+    var main = document.getElementById('main');
+    var currentBackgroundColor = 'white'; // Default background color
+    
+    fullscreenButton.addEventListener('click', function () {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            if (main.requestFullscreen) {
+                main.requestFullscreen();
+            } else if (main.webkitRequestFullscreen) {
+                main.webkitRequestFullscreen();
+            } else if (main.mozRequestFullScreen) {
+                main.mozRequestFullScreen();
+            } else if (main.msRequestFullscreen) {
+                main.msRequestFullscreen();
+            }
+        }
+    });
+
+    document.addEventListener('fullscreenchange', function () {
+        if (document.fullscreenElement || 
+            document.webkitFullscreenElement || 
+            document.mozFullScreenElement || 
+            document.msFullscreenElement) {
+            main.style.backgroundColor = currentBackgroundColor; // Apply the background color in fullscreen
+        } else {
+            main.style.backgroundColor = currentBackgroundColor; // Apply the background color when exiting fullscreen
+        }
+    });
+
+    function changeBackgroundColor(color) {
+        currentBackgroundColor = color; // Update current background color
+        main.style.backgroundColor = color; // Apply the new background color
+    }
+
+    // Increase/decrease font size
+    const iframe = document.getElementById('myIframe');
+    const increaseButton = document.getElementById('increaseFont');
+    const decreaseButton = document.getElementById('decreaseFont');
+
+    increaseButton.addEventListener('click', () => {
+        iframe.contentWindow.postMessage('increaseFont', '*');
+    });
+
+    decreaseButton.addEventListener('click', () => {
+        iframe.contentWindow.postMessage('decreaseFont', '*');
+    });
+
+    // Change font
+    const fontDropdown = document.querySelector('.font-dropdown ul');
+    fontDropdown.addEventListener('click', (event) => {
+        const selectedFont = event.target.dataset.font;
+        if (selectedFont) {
+            iframe.contentWindow.postMessage({ type: 'changeFont', font: selectedFont }, '*');
+        }
+    });
+
+    window.addEventListener('message', (event) => {
+        const message = event.data;
+        const body = document.body;
+
+        if (message === 'increaseFont') {
+            let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+            body.style.fontSize = (currentSize + 1) + 'px';
+        }
+
+        if (message === 'decreaseFont') {
+            let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+            body.style.fontSize = (currentSize - 1) + 'px';
+        }
+
+        if (message.type === 'changeFont') {
+            body.style.fontFamily = message.font;
+        }
+    });
+</script>
+</html>
